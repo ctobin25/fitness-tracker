@@ -11,3 +11,25 @@ router.get("/workouts", (req, res) => {
         });
 });
 
+router.put("/workouts/:id", ({ params, body }, res) => {
+    console.log(body);
+    db.Workout.findByIdAndUpdate(
+        params.id,
+        {
+            $push: {
+                exercises: body,
+
+            },
+        },
+        {
+            new: true,
+            runValidators: true
+        }
+    )
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
