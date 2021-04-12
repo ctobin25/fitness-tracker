@@ -28,6 +28,7 @@ router.put("/workouts/:id", ({ params, body }, res) => {
     )
         .then(dbWorkout => {
             res.json(dbWorkout);
+            console.log("dbworkout",dbWorkout)
         })
         .catch(err => {
             res.json(err);
@@ -47,7 +48,6 @@ router.post("/workouts", ({ body }, res) => {
             res.json(err);
         });
 
-    // res.send('Got a POST request')
 });
 
 
