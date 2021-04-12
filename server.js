@@ -8,9 +8,13 @@ const PORT = process.env.PORT || 8080;
 
 const db = require("./models");
 
-const databaseName = "workout_db"
 
 const app = express();
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout_db", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
 
 

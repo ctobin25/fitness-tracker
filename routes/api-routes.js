@@ -34,8 +34,11 @@ router.put("/workouts/:id", ({ params, body }, res) => {
         });
 });
 
+console.log('hit api file')
+
 router.post("/workouts", ({ body }, res) => {
     console.log(body);
+    console.log("hit the route")
     db.Workout.create({})
         .then(dbWorkout => {
             res.json(dbWorkout);
@@ -44,7 +47,7 @@ router.post("/workouts", ({ body }, res) => {
             res.json(err);
         });
 
-    res.send('Got a POST request')
+    // res.send('Got a POST request')
 });
 
 
